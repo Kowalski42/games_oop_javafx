@@ -1,7 +1,6 @@
 package ru.job4j.puzzle;
 
-import ru.job4j.puzzle.firuges.Cell;
-import ru.job4j.puzzle.firuges.Figure;
+import ru.job4j.puzzle.firuges.*;
 import java.util.Arrays;
 
 public class Logic {
@@ -22,7 +21,7 @@ public class Logic {
         boolean rst = false;
         int index = findBy(source);
         if (index != -1) {
-            Cell[] steps = figures[index].way(dest);
+            Cell[] steps = figures[index].way(dest, source);
             if (isFree(steps)) {
                 rst = true;
                 figures[index] = figures[index].copy(dest);
