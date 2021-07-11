@@ -2,16 +2,15 @@ package ru.job4j.puzzle;
 
 public class Win {
     public static boolean check(int[][] board) {
-        if (diagonal1(board) || diagonal2(board)) {
-            return true;
-        }
+        boolean rsl = false;
         int[] temp = extractDiagonal(board);
         for (int i = 0; i < temp.length; i++) {
             if (temp[i] == 1 && (monoVertical(board, i) || monoHorizontal(board, i))) {
-                return true;
+                rsl = true;
+                break;
             }
         }
-        return false;
+        return rsl;
     }
 
     public static boolean monoHorizontal(int[][] board, int row) {
@@ -29,28 +28,6 @@ public class Win {
         boolean rsl = true;
         for (int i = 0; i < board.length; i++) {
             if (board[i][column] != 1) {
-                rsl = false;
-                break;
-            }
-        }
-        return rsl;
-    }
-
-    public static boolean diagonal1(int[][] board) {
-        boolean rsl = true;
-        for (int i = 0; i < board.length; i++) {
-            if (board[i][i] != 1) {
-                rsl = false;
-                break;
-            }
-        }
-        return rsl;
-    }
-
-    public static boolean diagonal2(int[][] board) {
-        boolean rsl = true;
-        for (int i = 0; i < board.length; i++) {
-            if (board[i][board.length - 1 - i] != 1) {
                 rsl = false;
                 break;
             }
