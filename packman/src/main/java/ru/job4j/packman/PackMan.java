@@ -1,10 +1,6 @@
 package ru.job4j.packman;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -16,12 +12,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import ru.job4j.packman.firuges.Block;
 import ru.job4j.packman.firuges.Cell;
 import ru.job4j.packman.firuges.Figure;
-
-import java.util.Random;
 
 public class PackMan extends Application {
     private static final String JOB4J = "Пазлы на www.job4j.ru";
@@ -39,7 +32,8 @@ public class PackMan extends Application {
         return rect;
     }
 
-    private Rectangle buildFigure(int x, int y, int size, String image) {
+    private Rectangle buildFigure(int x, int y, int size, String image)
+            throws NullPointerException {
         Rectangle rect = new Rectangle();
         rect.setX(x);
         rect.setY(y);
@@ -87,7 +81,9 @@ public class PackMan extends Application {
         Group grid = this.buildGrid();
         border.setCenter(grid);
         this.add(new Block(new Cell(0, 0)), grid);
-//        this.add(new Block(new Cell(4, 4)), grid);
+        /**
+        * this.add(new Block(new Cell(4, 4)), grid);
+         */
     }
 
     public void add(Figure figure, Group grid) {
