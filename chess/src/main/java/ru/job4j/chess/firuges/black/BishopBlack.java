@@ -24,7 +24,9 @@ public class BishopBlack implements Figure {
         }
         int size = Math.abs(dest.getX() - position.getX());
         Cell[] steps = new Cell[size];
-        // deltaX и deltaY будут -1, если движение в обратном направлении, и 1, если движение вперед
+        /**
+        * deltaX и deltaY будут -1, если движение в обратном направлении, и 1, если движение вперед
+        * */
         int deltaX = (dest.getX() - position.getX()) / size;
         int deltaY = (dest.getY() - position.getY()) / size;
         steps[0] = Cell.findBy(position.getX() + deltaX,
